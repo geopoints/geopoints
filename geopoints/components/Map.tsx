@@ -38,11 +38,11 @@ const newPointDefaultData: CreatePointData = {
   lng: 0,
 };
 
-interface MapProps {
-  urlCoord: Coordinates;
-}
+// interface MapProps {
+//   urlCoord: Coordinates;
+// }
 
-function Map( {urlCoord}:MapProps) {
+function Map() {
   const [currentUserLocation, setCurrentUserLocation] = useState<Coordinates>({
     lat: 0,
     lng: 0,
@@ -53,7 +53,7 @@ function Map( {urlCoord}:MapProps) {
     lat: 0,
     lng: 0,
   });
-  const { showCrosshair, setMap, setCurrentUserPosition } =
+  const { showCrosshair, setMap, setCurrentUserPosition, pointWeWantToSee } =
     useContext(MapContext);
   const { user } = useUser();
   const { data } = useUserData(user!);
@@ -66,7 +66,7 @@ function Map( {urlCoord}:MapProps) {
     (list: List) => list.title === 'My Points'
   );
 
-console.log('map prop',urlCoord)
+  console.log('map prop', { pointWeWantToSee });
 
   useEffect(() => {
     getUserPosition();
@@ -153,12 +153,15 @@ console.log('map prop',urlCoord)
     }
     return false;
   }
+  if (pointWeWantToSee.lat === 0) {
+    return <LoadingSpinner />;
+  }
 
   return isLoaded ? (
     <div className="fixed flex justify-center items-center h-full w-full top-0 left-0">
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={urlCoord.lat?urlCoord:currentUserLocation}
+        center={pointWeWantToSee}
         onLoad={onLoad}
         onUnmount={onUnmount}
         onDblClick={handleDoubleClick}
