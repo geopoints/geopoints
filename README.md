@@ -108,5 +108,6 @@ Except for the regular suspects; git, Node, npm, you need these things to work o
 * Mateo Presa - [GitHub](https://github.com/MateoPresaCastro) - [LinkedIn](https://www.linkedin.com/in/mateopresa/)
 * Dominic Bolton - [GitHub](https://github.com/dombolton1) - [LinkedIn](https://www.linkedin.com/in/dominic-bolton-368608173/)
 * Mark Kagan - [GitHub](https://github.com/MarkKagan) - [LinkedIn](https://www.linkedin.com/in/mark-kagan/)
+* Karl Fredriksson - [GitHub](https://github.com/mothugget) - [LinkedIn](https://www.linkedin.com/in/karl-p-a-fredriksson/)
 
 
